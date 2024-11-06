@@ -1,0 +1,7 @@
+{
+  "name": "PetSmart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

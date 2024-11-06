@@ -1,0 +1,40 @@
+<ion-card>
+  <img alt="Silhouette of mountains" src="https://gps-trace.com/assets/img/petovik/main.svg" />
+  <ion-card-header>
+    <ion-card-title>Registrarse</ion-card-title>
+    <ion-card-subtitle>Bienvenido a XXX </ion-card-subtitle>
+  </ion-card-header>
+  <form [formGroup]="formRegistro">
+    <ion-card-content>
+      
+      <ion-input formControlName="nombre"  [(ngModel)]="nombre" label="Nombre de Usuario" labelPlacement="floating"></ion-input>
+        <div *ngIf="this.formRegistro.controls?.['nombre']?.touched && this.formRegistro.controls?.['nombre']?.invalid">
+          <ion-text *ngIf="errorControl.nombre.errors?.required">
+            Nombre es requerido
+          </ion-text>
+        </div>
+
+      <ion-input formControlName="password"  [(ngModel)]="contrasena" label="Contraseña" labelPlacement="floating" type="password"></ion-input>
+      <ion-input label="Confirme su Contraseña" labelPlacement="floating" type="password"></ion-input>
+      <div *ngIf="this.formRegistro.controls?.['password']?.touched && this.formRegistro.controls?.['password']?.invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required">
+          Contraseña es requerida
+        </ion-text>
+      </div>
+
+
+      <ion-input formControlName="email" [(ngModel)]="correo" label="Ingrese su correo" labelPlacement="floating" type="mail"></ion-input>
+      <div *ngIf="this.formRegistro.controls?.['email']?.touched && this.formRegistro.controls?.['email']?.invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required">
+          Correo es requerido
+        </ion-text>
+      </div>
+
+      <br>
+      <a href= "" click= "regresar()" ><h5>¿Ya tienes cuenta? Inicia sesión</h5></a>
+
+      <ion-button expand="block" (click)="registarFireBase()"><ion-ripple-effect></ion-ripple-effect>Ingresar</ion-button>
+
+    </ion-card-content>
+  </form>
+</ion-card>

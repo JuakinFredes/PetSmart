@@ -22,7 +22,10 @@
       "es2018", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    //para los forms
+    "strictPropertyInitialization": false,
+    "noPropertyAccessFromIndexSignature": false,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

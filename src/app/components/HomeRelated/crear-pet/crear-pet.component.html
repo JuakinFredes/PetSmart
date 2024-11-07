@@ -1,3 +1,42 @@
-<p>
-  crear-pet works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-button shape="round" [routerLink]="['/home/pets']" ><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card class="carrusel">
+  <ion-card-header>
+    <ion-card-title>Agrege su mascota</ion-card-title>
+  </ion-card-header>
+
+  <div class="fotos" style="display: flex; justify-content: center; border: 1px solid black;">
+  <ion-button size="large" shape="round">
+    <ion-icon slot="icon-only" name="add-circle-outline" size="large"></ion-icon>
+  </ion-button>
+  </div>  
+
+    <ion-card-content>  
+      <ion-item>
+        <ion-input label="Nombre" placeholder="Nombre" [(ngModel)]="newMascota.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Apellido" placeholder="Apellido" [(ngModel)]="newMascota.apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Especie" placeholder="Especie" [(ngModel)]="newMascota.especie"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Raza" placeholder="Raza" [(ngModel)]="newMascota.raza"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Fecha de Nacimiento" placeholder="" [(ngModel)]="newMascota.fNaci"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Nombre Dueño" placeholder="Nombre Dueño" [(ngModel)]="newMascota.dueno"></ion-input>
+      </ion-item>
+    </ion-card-content>
+
+      <ion-button class="center-button" (click)="mascotaAgregada()">Agregar</ion-button>
+
+    
+</ion-card>

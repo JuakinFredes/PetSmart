@@ -51,7 +51,8 @@ async registarFireBase() {
       this.router.navigate(['/home'])
     }
   }
-    */
+  borrar el de abajo para probar firebase  */
+  this.router.navigate(['/home'])
 }
 
 

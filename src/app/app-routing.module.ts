@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NotFoundPageModule } from './pages/not-found/not-found.module';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
     path: 'plogin',
     loadChildren: () => import('./pages/plogin/plogin.module').then( m => m.PLoginPageModule)
   },
+  {
+    path: '**',
+    component: NotFoundPageModule,
+  },
+
 ];
 
 @NgModule({

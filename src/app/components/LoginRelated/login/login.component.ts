@@ -53,7 +53,7 @@ export class LoginComponent  implements OnInit {
       }
     }
     borrar el de abajo para probar firebase  */
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home/front-page'])
     }
   
     irRegistro(){

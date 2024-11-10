@@ -14,7 +14,7 @@ export class NotFoundPage implements OnInit {
   }
 
   volver(){
-    this.router.navigate(['/login']);
+    this.router.navigate(['plogin/login']);
   }
 
 }

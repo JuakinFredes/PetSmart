@@ -10,8 +10,9 @@ import { AlarmasComponent } from 'src/app/components/HomeRelated/alarmas/alarmas
 import { CalendarioComponent } from 'src/app/components/HomeRelated/calendario/calendario.component';
 import { CrearPetComponent } from 'src/app/components/HomeRelated/crear-pet/crear-pet.component';
 import { FrontPageComponent } from 'src/app/components/HomeRelated/front-page/front-page.component';
-import { PetPerfilComponent } from 'src/app/components/HomeRelated/pet-perfil/pet-perfil.component';
+
 import { PetsComponent } from 'src/app/components/HomeRelated/pets/pets.component';
+import { PerfilMascoComponent } from 'src/app/components/HomeRelated/perfil-masco/perfil-masco.component';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { PetsComponent } from 'src/app/components/HomeRelated/pets/pets.componen
                  CalendarioComponent,
                  CrearPetComponent,
                  FrontPageComponent,
-                 PetPerfilComponent,
+                 PerfilMascoComponent,
                  PetsComponent,
                 ]
 })

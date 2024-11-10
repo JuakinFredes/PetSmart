@@ -52,17 +52,12 @@ async registarFireBase() {
     }
   }
   borrar el de abajo para probar firebase  */
-  this.router.navigate(['/register-name'])
+  this.router.navigate(['home/front-page'])
 }
 
-
-
-ingresar(){
-  this.router.navigate(['/home']);
-}
 
 regresar(){
-  this.router.navigate(['/login']);
+  this.router.navigate(['plogin/login']);
 }
 
 

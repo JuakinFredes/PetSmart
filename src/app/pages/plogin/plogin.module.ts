@@ -11,7 +11,7 @@ import { LoginComponent } from 'src/app/components/LoginRelated/login/login.comp
 import { PasswordForgotComponent } from 'src/app/components/LoginRelated/password-forgot/password-forgot.component';
 import { PasswordResetComponent } from 'src/app/components/LoginRelated/password-reset/password-reset.component';
 import { RegisterMailComponent } from 'src/app/components/LoginRelated/register-mail/register-mail.component';
-import { RegisterNameComponent } from 'src/app/components/LoginRelated/register-name/register-name.component';
+
 
 @NgModule({
   imports: [
@@ -28,6 +28,6 @@ import { RegisterNameComponent } from 'src/app/components/LoginRelated/register-
                  PasswordForgotComponent,
                  PasswordResetComponent,
                  RegisterMailComponent,
-                 RegisterNameComponent]
+                 ]
 })
 export class PLoginPageModule {}

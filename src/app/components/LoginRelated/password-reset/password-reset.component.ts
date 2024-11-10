@@ -13,7 +13,7 @@ export class PasswordResetComponent  implements OnInit {
   ngOnInit() {}
 
   regresar(){
-    this.router.navigate(['/login']);
+    this.router.navigate(['plogin/login']);
   }
 
 

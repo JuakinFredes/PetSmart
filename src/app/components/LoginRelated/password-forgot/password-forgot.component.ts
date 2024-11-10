@@ -13,7 +13,7 @@ export class PasswordForgotComponent  implements OnInit {
   ngOnInit() {}
 
   recuperar(){
-    this.router.navigate(['/restablecer']);
+    this.router.navigate(['plogin/password-reset']);
   }
 
 }

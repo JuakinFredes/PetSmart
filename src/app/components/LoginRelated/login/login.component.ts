@@ -10,6 +10,7 @@ import { ToastController, LoadingController  } from '@ionic/angular';
 })
 export class LoginComponent  implements OnInit {
 
+
   login:any={
     email:"",
     password:"" 
@@ -41,6 +42,8 @@ export class LoginComponent  implements OnInit {
     return this.formLogin?.controls;
   }
 
+  
+
   async loginUsuario() {
     /** 
     const loading = await this.loadingControl.create();
@@ -53,27 +56,12 @@ export class LoginComponent  implements OnInit {
       }
     }
     borrar el de abajo para probar firebase  */
-    this.router.navigate(['/home/front-page'])
+    this.router.navigate(['home/front-page'])
     }
   
     irRegistro(){
-      this.router.navigate(['/register-mail']);
+      this.router.navigate(['plogin/register-mail']);
     }
-  
-  
-    ingresar(){
-      if(this.validateModel(this.login)){
-        this.presentToast("middle","Bienvenido/a " + this.login.usuario);
-        let navigationExtras : NavigationExtras ={
-          state: {login: this.login}
-        };
-        this.router.navigate(['/home'],navigationExtras);
-      }else{
-        this.presentToast("middle","Error - Falta: " + this.field,3000);
-      }    
-    }
-  
-  
   
   
     validateModel(model:any){
@@ -95,5 +83,8 @@ export class LoginComponent  implements OnInit {
   
       await toast.present();
     }
-
+    
+  passwordForgot() {
+    this.router.navigate(['plogin/password-forgot'])
+  }
 }

@@ -7,7 +7,8 @@ import { AlarmasComponent } from 'src/app/components/HomeRelated/alarmas/alarmas
 import { CalendarioComponent } from 'src/app/components/HomeRelated/calendario/calendario.component';
 import { CrearPetComponent } from 'src/app/components/HomeRelated/crear-pet/crear-pet.component';
 import { FrontPageComponent } from 'src/app/components/HomeRelated/front-page/front-page.component';
-import { PetPerfilComponent } from 'src/app/components/HomeRelated/pet-perfil/pet-perfil.component';
+import { PerfilMascoComponent } from 'src/app/components/HomeRelated/perfil-masco/perfil-masco.component';
+import { PetsComponent } from 'src/app/components/HomeRelated/pets/pets.component';
 
 const routes: Routes = [
   {
@@ -36,12 +37,12 @@ const routes: Routes = [
         component: FrontPageComponent
       },
       {
-        path: 'pet-perfil',
-        component: PetPerfilComponent
+        path: 'perfilmasco',
+        component: PerfilMascoComponent
       },
       {
         path: 'pets',
-        component: PetPerfilComponent
+        component: PetsComponent
       },
     ]
   }

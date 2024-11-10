@@ -35,7 +35,7 @@ export class FrontPageComponent  implements OnInit {
   async logoutUsuario(){
     //this.db.deleteUsuario()
     //this.autentificacion.logoutUsuario();
-    this.router.navigate(['/login']);
+    this.router.navigate(['plogin/login']);
   }
 
 }

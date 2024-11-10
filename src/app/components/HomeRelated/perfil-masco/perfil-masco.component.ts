@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pet-perfil',
-  templateUrl: './pet-perfil.component.html',
-  styleUrls: ['./pet-perfil.component.scss'],
+  selector: 'app-perfil-masco',
+  templateUrl: './perfil-masco.component.html',
+  styleUrls: ['./perfil-masco.component.scss'],
 })
-export class PetPerfilComponent  implements OnInit {
+export class PerfilMascoComponent  implements OnInit {
 
   userId:any;
   nombre:string;

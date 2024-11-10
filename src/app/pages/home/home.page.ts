@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   constructor(private router:Router) {
-    this.router.navigate(['home/chome']);
+    this.router.navigate(['home/front-page']);
   }
 
   segmentChanged($event:any){

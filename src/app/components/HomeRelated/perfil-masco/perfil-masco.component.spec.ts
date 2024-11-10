@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PetPerfilComponent } from './pet-perfil.component';
+import { PerfilMascoComponent } from './perfil-masco.component';
 
-describe('PetPerfilComponent', () => {
-  let component: PetPerfilComponent;
-  let fixture: ComponentFixture<PetPerfilComponent>;
+describe('PerfilMascoComponent', () => {
+  let component: PerfilMascoComponent;
+  let fixture: ComponentFixture<PerfilMascoComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetPerfilComponent ],
+      declarations: [ PerfilMascoComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PetPerfilComponent);
+    fixture = TestBed.createComponent(PerfilMascoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

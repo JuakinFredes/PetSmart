@@ -25,6 +25,8 @@
     "useDefineForClassFields": false,
     //para los forms
     "strictPropertyInitialization": false,
+    //para el user en usuarios.service.ts
+    "strictNullChecks": false,
  
   },
   "angularCompilerOptions": {

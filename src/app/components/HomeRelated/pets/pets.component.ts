@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DBSService } from 'src/app/services/dbs.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-pets',
@@ -8,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PetsComponent  implements OnInit {
 
-  //mascotas$: Observable<any[]>;
+  mascotas$: Observable<any[]>;
 
   userId:any;
   nombre:string;
@@ -19,22 +23,26 @@ export class PetsComponent  implements OnInit {
   createdAt:any;
 
 
-  constructor(private router:Router,) { }
+  constructor(private router:Router,
+              public usuarios : UsuariosService,
+              public dbs : DBSService,
+              private afAuth : AngularFireAuth,
+  ) { }
 
   ngOnInit() {
-    /**
-    this.autentificacion.obtenerUsuario().then(user => (
+
+    this.usuarios.obtenerUsuario().then(user => (
       this.userId =user.uid))
 
       this.afAuth.authState.subscribe(user => {
         if (user) {
           this.userId = user.uid; 
-          this.mascotas$ = this.firebaseService.getMascotasByUserId(this.userId);
+          this.mascotas$ = this.dbs.getMascotasByUserId(this.userId);
         } else {
           this.userId = null;
         }
       });
-       */
+
   }
   perfilMascota(){
     this.router.navigate(['/petperil']);

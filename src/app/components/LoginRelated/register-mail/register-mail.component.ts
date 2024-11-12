@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-register-mail',
@@ -19,6 +20,7 @@ export class RegisterMailComponent  implements OnInit {
   constructor(public router:Router,
               public formBuilder: FormBuilder,
               public loadingControl : LoadingController,
+              public usuarios : UsuariosService,
   ) { }
 
   usuario: any[] = [];
@@ -41,18 +43,16 @@ export class RegisterMailComponent  implements OnInit {
 
 
 async registarFireBase() {
-  /** 
+
   const loading = await this.loadingControl.create();
   if(this.formRegistro?.valid){
-    const user = await this.autentificacion.registrarUsuario(this.formRegistro.value.email,this.formRegistro.value.password)
+    const user = await this.usuarios.registrarUsuario(this.formRegistro.value.email,this.formRegistro.value.password)
     if(user){
       loading.dismiss()
-      this.registrar()
-      this.router.navigate(['/home'])
+      this.router.navigate(['home/front-page'])
     }
   }
-  borrar el de abajo para probar firebase  */
-  this.router.navigate(['home/front-page'])
+
 }
 
 

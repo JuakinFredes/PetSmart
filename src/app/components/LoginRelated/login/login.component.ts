@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastController, LoadingController  } from '@ionic/angular';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,10 @@ export class LoginComponent  implements OnInit {
 
   constructor(public router:Router, 
               public toastController:ToastController,
-              public formBuilder: FormBuilder,) { }
+              public formBuilder: FormBuilder,
+              public loadingControl : LoadingController,
+              public usuarios : UsuariosService,  
+            ) { }
 
   ngOnInit() {
     this.formLogin = this.formBuilder.group({
@@ -45,18 +49,14 @@ export class LoginComponent  implements OnInit {
   
 
   async loginUsuario() {
-    /** 
     const loading = await this.loadingControl.create();
     if(this.formLogin?.valid){
-      const user = await this.autentificacion.loginUsuario(this.formLogin.value.email,this.formLogin.value.password)
+      const user = await this.usuarios.loginUsuario(this.formLogin.value.email,this.formLogin.value.password)
       if(user){
         loading.dismiss()
-        this.registrar()
-        this.router.navigate(['/home'])
+        this.router.navigate(['home/front-page'])
+        }
       }
-    }
-    borrar el de abajo para probar firebase  */
-    this.router.navigate(['home/front-page'])
     }
   
     irRegistro(){

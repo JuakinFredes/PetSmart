@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/plogin/plogin.module').then( m => m.PLoginPageModule)
   },
   {
-    path: '**',
-    component: NotFoundPageModule,
+  path: '**',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   },
 
 ];

@@ -1,16 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-button shape="round" [routerLink]="['/home/calendar']" ><ion-icon name="caret-back-outline"></ion-icon></ion-button>
-  </ion-toolbar>
-</ion-header>
-
-<ion-card>
-  <div class="calendario">
-    <ion-datetime [showDefaultTitle]="true"><span slot="title">Seleccione una fecha </span></ion-datetime>
+<ion-card class="content">
+  <div class="relog">
+      <ion-datetime presentation="time"></ion-datetime>
   </div>
   <div class="input">
     <ion-item>
-      <ion-input label="Evento:" placeholder="Evento"></ion-input>
+      <ion-input label="Nombre alarma:" placeholder="Alarma"></ion-input>
     </ion-item>
     <br>
     <ion-item>Descripcion</ion-item>
@@ -18,5 +12,11 @@
       <ion-textarea rows="2" class="desc" placeholder="Texto"></ion-textarea>
     </ion-item>
   </div>
-  <div class="boton"><ion-button size="small">agregar evento</ion-button></div>
+  <div class="boton"><ion-button size="small">agregar Alarma</ion-button></div>
 </ion-card>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="goBack()">
+    <ion-icon name="caret-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

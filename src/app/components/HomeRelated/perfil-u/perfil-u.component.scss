@@ -1,0 +1,17 @@
+.carrusel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #fff5d0;
+}
+ion-col {
+  color: black;
+  text-align: center;
+}
+
+ion-item{
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;  
+}

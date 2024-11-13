@@ -50,4 +50,8 @@ export class UsuariosService {
     
   }
 
+  async eliminarUsuario(){
+    return await this.ngFireAuth.currentUser.then(user => user?.delete())
+  } 
+
 }

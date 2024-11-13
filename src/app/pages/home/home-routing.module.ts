@@ -9,6 +9,7 @@ import { CrearPetComponent } from 'src/app/components/HomeRelated/crear-pet/crea
 import { FrontPageComponent } from 'src/app/components/HomeRelated/front-page/front-page.component';
 import { PerfilMascoComponent } from 'src/app/components/HomeRelated/perfil-masco/perfil-masco.component';
 import { PetsComponent } from 'src/app/components/HomeRelated/pets/pets.component';
+import { PerfilUComponent } from 'src/app/components/HomeRelated/perfil-u/perfil-u.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'pets',
         component: PetsComponent
+      },
+      {
+        path: 'perfil-u',
+        component: PerfilUComponent
       },
     ]
   }

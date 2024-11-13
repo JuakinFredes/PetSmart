@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NotFoundPageModule } from './pages/not-found/not-found.module';
+import { VerificarGuard } from './guard/verificar.guard';
 
 const routes: Routes = [
   {
     path: 'home',
+    canActivate : [VerificarGuard],
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'plogin/login',
+    redirectTo: 'home/front-page',
     pathMatch: 'full'
   },
   {
@@ -20,6 +21,8 @@ const routes: Routes = [
   path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   },
+
+
 
 ];
 

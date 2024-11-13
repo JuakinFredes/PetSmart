@@ -13,6 +13,7 @@ import { FrontPageComponent } from 'src/app/components/HomeRelated/front-page/fr
 
 import { PetsComponent } from 'src/app/components/HomeRelated/pets/pets.component';
 import { PerfilMascoComponent } from 'src/app/components/HomeRelated/perfil-masco/perfil-masco.component';
+import { PerfilUComponent } from 'src/app/components/HomeRelated/perfil-u/perfil-u.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { PerfilMascoComponent } from 'src/app/components/HomeRelated/perfil-masc
                  FrontPageComponent,
                  PerfilMascoComponent,
                  PetsComponent,
+                 PerfilUComponent
                 ]
 })
 export class HomePageModule {}

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimationController, IonButton, Animation } from '@ionic/angular';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-front-page',
@@ -15,7 +16,8 @@ export class FrontPageComponent  implements OnInit {
   private animation! : Animation;
 
   constructor(private animationCtrl:AnimationController,
-              public router:Router,) { }
+              public router:Router,
+              public usuarios : UsuariosService) { }
 
   ngOnInit() {}
   ngAfterViewInit(){
@@ -33,8 +35,7 @@ export class FrontPageComponent  implements OnInit {
     this.animation.play();
   }
   async logoutUsuario(){
-    //this.db.deleteUsuario()
-    //this.autentificacion.logoutUsuario();
+    this.usuarios.logoutUsuario();
     this.router.navigate(['plogin/login']);
   }
 

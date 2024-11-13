@@ -17,7 +17,7 @@ export class VerificarGuard implements CanActivate {
     return this.usuarios.isLoggedIn().pipe(
       map(isLoggedIn => {
         if (!isLoggedIn) {
-          this.router.navigate(['/login']);
+          this.router.navigate(['plogin/login']);
           return false;
         }
         return true;

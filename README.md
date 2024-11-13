@@ -1,1 +1,1 @@
-- npm i uuid
+npm i uuid (generar id para mascota)

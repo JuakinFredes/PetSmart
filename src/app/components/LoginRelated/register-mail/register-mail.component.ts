@@ -11,7 +11,6 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class RegisterMailComponent  implements OnInit {
 
-  nombre : string ="";
   contrasena : string = "";
   correo : string = "";
 
@@ -27,7 +26,6 @@ export class RegisterMailComponent  implements OnInit {
 
   ngOnInit() {
     this.formRegistro = this.formBuilder.group({
-      nombre : ['', [Validators.required]],
       email : ['', [Validators.required,
                     Validators.email
       ]],
@@ -42,7 +40,7 @@ export class RegisterMailComponent  implements OnInit {
 }
 
 
-async registarFireBase() {
+async registrarFireBase() {
 
   const loading = await this.loadingControl.create();
   if(this.formRegistro?.valid){

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Usuario } from 'src/app/class/usuario';
+import { DBSService } from 'src/app/services/dbs.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
@@ -11,8 +13,9 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class RegisterMailComponent  implements OnInit {
 
-  contrasena : string = "";
-  correo : string = "";
+
+
+  newUsuario: Usuario =  { id: '',nombre:'',contrasena:'', correo:''};
 
   formRegistro: FormGroup;
 
@@ -20,12 +23,14 @@ export class RegisterMailComponent  implements OnInit {
               public formBuilder: FormBuilder,
               public loadingControl : LoadingController,
               public usuarios : UsuariosService,
+              public dbs : DBSService,
   ) { }
 
   usuario: any[] = [];
 
   ngOnInit() {
     this.formRegistro = this.formBuilder.group({
+      nombre : ['', [Validators.required]],
       email : ['', [Validators.required,
                     Validators.email
       ]],
@@ -40,14 +45,25 @@ export class RegisterMailComponent  implements OnInit {
 }
 
 
+
+
 async registrarFireBase() {
 
   const loading = await this.loadingControl.create();
   if(this.formRegistro?.valid){
     const user = await this.usuarios.registrarUsuario(this.formRegistro.value.email,this.formRegistro.value.password)
     if(user){
+      const uid =(await this.usuarios.obtenerUsuario()).uid
+      this.newUsuario = {id: uid,
+                         nombre: this.formRegistro.value.nombre,
+                         contrasena: this.formRegistro.value.password,
+                         correo: this.formRegistro.value.email
+                        }
+      this.dbs.crearDocID(this.newUsuario,'Usuarios',this.newUsuario.id)
       loading.dismiss()
       this.router.navigate(['home/front-page'])
+    }else{
+      console.log(this.newUsuario,user)
     }
   }
 
@@ -57,6 +73,7 @@ async registrarFireBase() {
 regresar(){
   this.router.navigate(['plogin/login']);
 }
+
 
 
 

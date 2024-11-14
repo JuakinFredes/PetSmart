@@ -10,6 +10,11 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class PerfilUComponent  implements OnInit {
 
+  id: number | undefined;
+  nombre: string | undefined;
+  contrasena: string | undefined;
+  correo: string | undefined; 
+
   constructor(public usuarios : UsuariosService,
               public router : Router,
               public loadingControl : LoadingController,

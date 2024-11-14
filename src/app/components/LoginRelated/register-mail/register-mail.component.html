@@ -6,15 +6,22 @@
   </ion-card-header>
   <form [formGroup]="formRegistro">
     <ion-card-content>
+
+      <ion-input formControlName="nombre"  [(ngModel)]="newUsuario.nombre" label="Nombre de Usuario" labelPlacement="floating"></ion-input>
+        <div *ngIf="this.formRegistro.controls?.['nombre'].touched && this.formRegistro.controls?.['nombre'].invalid">
+          <ion-text *ngIf="errorControl.nombre.errors?.required">
+            Nombre es requerido
+          </ion-text>
+        </div>
       
-      <ion-input formControlName="email" [(ngModel)]="correo" label="Ingrese su correo" labelPlacement="floating" type="mail"></ion-input>
+      <ion-input formControlName="email" [(ngModel)]="newUsuario.correo" label="Ingrese su correo" labelPlacement="floating" type="mail"></ion-input>
       <div *ngIf="this.formRegistro.controls?.['email']?.touched && this.formRegistro.controls?.['email']?.invalid">
         <ion-text *ngIf="errorControl.email.errors?.required">
           Correo es requerido
         </ion-text>
       </div>
 
-      <ion-input formControlName="password"  [(ngModel)]="contrasena" label="Contraseña" labelPlacement="floating" type="password"></ion-input>
+      <ion-input formControlName="password"  [(ngModel)]="newUsuario.contrasena" label="Contraseña" labelPlacement="floating" type="password"></ion-input>
       <ion-input label="Confirme su Contraseña" labelPlacement="floating" type="password"></ion-input>
       <div *ngIf="this.formRegistro.controls?.['password']?.touched && this.formRegistro.controls?.['password']?.invalid">
         <ion-text *ngIf="errorControl.password.errors?.required">

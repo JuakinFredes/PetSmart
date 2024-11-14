@@ -2,8 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { collectionData, docData, Firestore, doc, query, setDoc, where } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
 import { Mascota } from '../class/mascota';
-import { collection } from 'firebase/firestore';
+import { collection, deleteDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
+import { Usuario } from '../class/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,17 @@ export class DBSService {
       map(mascotas => mascotas[0]) 
     ) as Observable<Mascota>;
   }
+
+  getUser(id: string): Observable<any[]> {
+    const refColeccion = collection(this.firestore, 'Usuarios');
+    const q = query(refColeccion, where('id', '==', id));
+    return collectionData(q) as Observable<any[]>;
+  }
+
+  deleteDocumentID(enlace: string, idDoc: string) {
+    const document = doc(this.firestore, `${enlace}/${idDoc}`);
+    return deleteDoc(document);
+  }
+
 
 }

@@ -1,13 +1,15 @@
 <ion-card class="carrusel">
   <ion-card-content>
-    <img class="perro" src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best/dog-lp_2up_new-dog-guide_puppy_260x346.png" style="width:70%;">
+    <img class="perro" src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best/dog-lp_2up_new-dog-guide_puppy_260x346.png" style="width:50%; justify-content: center; display: flex;">
   </ion-card-content>
 <ion-grid [fixed]="true">
 
+  <div *ngIf="usuarios$ | async as usuarios"> 
+    <div *ngFor="let u of usuarios">
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input label="Nombre"  [readonly]="true">Nombre</ion-input>
+        <ion-input label="Nombre"  [readonly]="true">{{u.nombre}}</ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -15,7 +17,7 @@
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input label="Correo" [readonly]="true">Correo</ion-input>
+        <ion-input label="Correo" [readonly]="true">{{u.correo}}</ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -23,11 +25,12 @@
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input label="Contraseña"  [readonly]="true">Contraseña</ion-input>
+        <ion-input label="Contraseña"  [readonly]="true">{{u.contrasena}}</ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
-
+    </div>
+  </div>
 </ion-grid>
 
 <ion-button (click)="eliminarUsuario()" color="danger">Eliminar Cuenta</ion-button>

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { DBSService } from 'src/app/services/dbs.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { PerfilMascoComponent } from '../perfil-masco/perfil-masco.component';
+import { Mascota } from 'src/app/class/mascota';
 
 @Component({
   selector: 'app-pets',
@@ -27,6 +30,7 @@ export class PetsComponent  implements OnInit {
               public usuarios : UsuariosService,
               public dbs : DBSService,
               private afAuth : AngularFireAuth,
+              private modelCtrl : ModalController,
   ) { }
 
   ngOnInit() {
@@ -50,6 +54,14 @@ export class PetsComponent  implements OnInit {
 
   crearMascota(){
     this.router.navigate(['home/crear-pet']);
+  }
+  
+  async openPet(mascota:Mascota){
+    const modal = await this.modelCtrl.create({
+      component: PerfilMascoComponent,
+      componentProps:{id:mascota.id}
+    })
+    await modal.present()
   }
 
 

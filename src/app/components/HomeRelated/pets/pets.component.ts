@@ -48,9 +48,7 @@ export class PetsComponent  implements OnInit {
       });
 
   }
-  perfilMascota(){
-    this.router.navigate(['/petperil']);
-  }
+
 
   crearMascota(){
     this.router.navigate(['home/crear-pet']);

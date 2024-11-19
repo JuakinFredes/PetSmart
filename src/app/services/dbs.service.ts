@@ -48,17 +48,11 @@ export class DBSService {
     return collectionData(q) as Observable<any[]>;
   }
 
-  getMascotaById(id:any) : Observable<Mascota>{
-    const docR = doc(this.firestore,`Mascotas/${id}`)
-    return docData(docR,{ idField: 'id'}) as Observable<Mascota>
+  getDocById(id:string, enlace: string) : Observable<any>{
+    const docR = doc(this.firestore,`${enlace}/${id}`)
+    return docData(docR,{ idField: 'id'}) as Observable<any>
 }
 
-
-  getUser(id: string): Observable<any[]> {
-    const refColeccion = collection(this.firestore, 'Usuarios');
-    const q = query(refColeccion, where('id', '==', id));
-    return collectionData(q) as Observable<any[]>;
-  }
 
   deleteDocumentID(enlace: string, idDoc: string) {
     const docR = doc(this.firestore, `${enlace}/${idDoc}`);

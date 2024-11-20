@@ -1,10 +1,8 @@
 ion-card{
-    margin: auto;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     background-color: #fff5d0;
-    color:black;
     
 }
 
@@ -13,7 +11,6 @@ ion-card-title, ion-card-subtitle{
     text-align: center;
 
 }
-
 
 ion-card-content{
     margin: auto;
@@ -27,3 +24,4 @@ ion-card-content{
 #salir{
     width: 50%;
 }
+

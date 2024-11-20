@@ -39,4 +39,5 @@ export class FrontPageComponent  implements OnInit {
     this.router.navigate(['plogin/login']);
   }
 
+
 }

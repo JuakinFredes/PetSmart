@@ -1,19 +1,16 @@
-<div class="calendario">
-
-  <ion-item style="margin-top: 5%;">
+  <ion-accordion-group>
+  <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+    <ion-item slot="header" color="light">
       <ion-input style="height: 70px;" label="Calendario"  [readonly]="true"></ion-input>
       <ion-button (click)="irCalendario()"  size="medium"><ion-icon name="calendar"></ion-icon></ion-button>
-  </ion-item>
-  <ion-item>
+    </ion-item>
+    <div class="ion-padding" slot="content">First Content</div>
+  </ion-accordion>
+  <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+    <ion-item slot="header" color="light">
       <ion-input style="height: 70px;" label="Alarma"  [readonly]="true"></ion-input>
       <ion-button (click)="irAlarmas()" size="medium"><ion-icon name="time"></ion-icon></ion-button>
-  </ion-item>
-
-  <div class="alarmas">
-
-      
-
-  </div>
-
-</div>
-
+    </ion-item>
+    <div class="ion-padding" slot="content">Second Content</div>
+  </ion-accordion>
+</ion-accordion-group>

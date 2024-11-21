@@ -19,7 +19,8 @@ const routes: Routes = [
     children: [
       {
         path: 'agenda',
-        component: AgendaComponent
+        component: AgendaComponent,
+        
       },
       {
         path: 'alarmas',

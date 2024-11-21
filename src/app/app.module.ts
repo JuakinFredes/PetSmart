@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { Calendar } from '@ionic-native/calendar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
                 provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
                 provideFirestore(() => getFirestore()),
+                Calendar,
               ],
   bootstrap: [AppComponent],
 })

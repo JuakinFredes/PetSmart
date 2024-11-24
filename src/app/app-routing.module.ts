@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home/front-page',
+    redirectTo: 'plogin/login',
     pathMatch: 'full'
   },
   {

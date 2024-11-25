@@ -14,7 +14,8 @@ import { environment } from 'src/environments/environment';
 
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { Calendar } from '@ionic-native/calendar/ngx';
+
+import {EmailComposer} from '@awesome-cordova-plugins/email-composer/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,10 +23,10 @@ import { Calendar } from '@ionic-native/calendar/ngx';
             AngularFireModule,AngularFireAuthModule,
             AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, EmailComposer,
                 provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
                 provideFirestore(() => getFirestore()),
-                Calendar,
+                
               ],
   bootstrap: [AppComponent],
 })

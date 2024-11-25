@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Calendar } from '@ionic-native/calendar/ngx';
 
 
 @Component({
@@ -11,7 +10,7 @@ import { Calendar } from '@ionic-native/calendar/ngx';
 export class AgendaComponent  implements OnInit {
 
   constructor(public route : Router,
-              private calendar: Calendar
+              
               ) 
               { 
                 /**this.calendar.createCalendar('MyCalendar').then(

@@ -31,15 +31,16 @@ export class AgendaComponent  implements OnInit {
               private cdr: ChangeDetectorRef,
               ) 
               { 
-                this.calendar.createCalendar('MyCalendar').then(
-                  (msg) => { console.log(msg); },
-                  (err) => { console.log(err); }
-                 );
+
               }
 
 
               
   async ngOnInit() {
+    this.calendar.createCalendar('MyCalendar').then(
+      (msg) => { console.log(msg); },
+      (err) => { console.log(err); }
+     );
     await this.checkPermission();
     this.onChange()
   }

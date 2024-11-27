@@ -28,7 +28,7 @@ export class AgendaComponent  implements OnInit {
   }
 
  async borrarAlarma(){
-  await this.notificaciones.EliminarNotificacion(this.id)
+  await this.notificaciones.EliminarNotificacion();
  }
 
 

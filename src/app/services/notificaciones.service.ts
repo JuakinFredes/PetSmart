@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { scheduled } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +34,11 @@ export class NotificacionesService {
         id: idN
       }]
     });
+  }
+
+  async ListarNotificaciones(){
+    const lista = await LocalNotifications.getPending();
+    return lista;
   }
 
   getCurrentNotificationId(): number {

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { from, Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificacionesService {
-  private notificationId = 0;
+
   constructor() { }
 
   async initPerm(){
@@ -14,12 +15,12 @@ export class NotificacionesService {
   }
 
   async CrearNotificacion(titulo: string, desc: string, hora: Date){
-    this.notificationId++;
+    const numericId = Math.floor(Math.random() * 1e12);
     await LocalNotifications.schedule({
       notifications: [{
         title: titulo,
         body: desc,
-        id:this.notificationId,
+        id: numericId,
         schedule: {
                    at: hora, 
                    every: "day"
@@ -36,12 +37,10 @@ export class NotificacionesService {
     });
   }
 
-  async ListarNotificaciones(){
-    const lista = await LocalNotifications.getPending();
-    return lista;
+  ListarNotificaciones(): Observable<any>{
+    const lista = from(LocalNotifications.getPending());
+    return lista as Observable<any>;
   }
 
-  getCurrentNotificationId(): number {
-    return this.notificationId;
-  }
+
 }

@@ -10,10 +10,13 @@ import { NotificacionesService } from 'src/app/services/notificaciones.service';
   styleUrls: ['./alarmas.component.scss'],
 })
 export class AlarmasComponent  implements OnInit {
+
   formRegistro: FormGroup;
   titulo : string;
   desc : string;
   hora : Date;
+
+
   constructor(public route : Router,
               public formBuilder: FormBuilder,
               private notificacion : NotificacionesService,
@@ -26,12 +29,15 @@ export class AlarmasComponent  implements OnInit {
       desc : ['', [Validators.required,
       ]],
     })
+
   }
 
   async crearAlarma(){
     const loading = await this.loadingControl.create();
     if(this.formRegistro?.valid){
-      this.notificacion.CrearNotificacion(this.titulo,this.desc,this.hora)
+      this.notificacion.CrearNotificacion(this.titulo,
+                                          this.desc,
+                                          this.hora)
     }
     loading.dismiss()
   }

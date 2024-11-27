@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { NotificacionesService } from 'src/app/services/notificaciones.service';
 
 
@@ -14,7 +15,7 @@ import { NotificacionesService } from 'src/app/services/notificaciones.service';
 })
 export class AgendaComponent  implements OnInit {
   id:any;
-  listaN$: Promise<any>;
+  listaN$: Observable<any>;
 
   constructor(public route : Router,
               private notificaciones : NotificacionesService
@@ -27,8 +28,8 @@ export class AgendaComponent  implements OnInit {
     this.listaN$ = this.notificaciones.ListarNotificaciones();
   }
 
- async borrarAlarma(){
-  await this.notificaciones.EliminarNotificacion();
+ async borrarAlarma(id : number){
+  await this.notificaciones.EliminarNotificacion(id);
  }
 
 

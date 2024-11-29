@@ -14,27 +14,31 @@ export class NotificacionesService {
     await LocalNotifications.requestPermissions();
   }
 
-  async CrearNotificacion(titulo: string, desc: string, hora: Date){
-    const numericId = Math.floor(Math.random() * 1e12);
-    await LocalNotifications.schedule({
+  async CrearNotificacion(titulo: string, desc: string,idN: number, hora: Date){
+    console.log("en CrearNotificacion datos de entrada")
+    console.log("titulo: ",titulo," desc: ",desc," id: ",idN," hora: ",hora )
+      await LocalNotifications.schedule({
       notifications: [{
-        title: titulo,
-        body: desc,
-        id: numericId,
-        schedule: {
-                   at: hora, 
-                   every: "day"
-                  }
-    }]
+                        title: titulo,
+                        body: desc,
+                        id: idN,
+                        schedule: {
+                                  at: hora, 
+                                  every: "day"
+                                  }
+                      }]
     })
+    console.log("saliendo CrearNotificacion")
   }
 
   async EliminarNotificacion(idN: number){
+    console.log("en EliminarNotificacion")
     await LocalNotifications.cancel({
       notifications: [{
         id: idN
       }]
     });
+    console.log("saliendo EliminarNotificacion")
   }
 
   ListarNotificaciones(): Observable<any>{

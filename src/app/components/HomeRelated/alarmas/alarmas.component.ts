@@ -24,6 +24,7 @@ export class AlarmasComponent  implements OnInit {
             ) { }
 
   ngOnInit() {
+    console.log("consola")
     this.formRegistro = this.formBuilder.group({
       titulo : ['', [Validators.required]],
       desc : ['', [Validators.required,
@@ -33,12 +34,17 @@ export class AlarmasComponent  implements OnInit {
   }
 
   async crearAlarma(){
+
+    const numericId = (Math.floor(Math.random() * 1e12));
+    console.log("en crearAlarma titulo:",this.titulo," desc:",this.desc," idN: ",numericId," hora:",this.hora)
     const loading = await this.loadingControl.create();
-    if(this.formRegistro?.valid){
+
       this.notificacion.CrearNotificacion(this.titulo,
                                           this.desc,
+                                          numericId,
                                           this.hora)
-    }
+
+    console.log("saliendo de crearAlarma")
     loading.dismiss()
   }
 

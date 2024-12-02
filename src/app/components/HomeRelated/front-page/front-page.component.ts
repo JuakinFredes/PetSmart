@@ -2,6 +2,9 @@ import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular
 import { Router } from '@angular/router';
 import { AnimationController, IonButton, Animation } from '@ionic/angular';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { EmailComposerOptions } from '@awesome-cordova-plugins/email-composer';
 
 @Component({
   selector: 'app-front-page',
@@ -14,26 +17,45 @@ export class FrontPageComponent  implements OnInit {
   btn!: QueryList<ElementRef<HTMLIonButtonElement>>;
 
   private animation! : Animation;
+  hasAccount: false;
+  imageData: string;
+  currentImage: string;
 
-  constructor(private animationCtrl:AnimationController,
+  constructor(private emailComposer:EmailComposer,
+              private animationCtrl:AnimationController,
               public router:Router,
-              public usuarios : UsuariosService) { }
+              public usuarios : UsuariosService,
+              
+            ) {}
+
+
+  async captureImage(){
+    const image = await Camera.getPhoto({
+      quality:90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera,
+    });
+
+    this.imageData = image.base64String;
+    this.currentImage = `data:image/jpeg;base64,${image.base64String}`;
+  }
+
+  async sendMail(){
+    const email: EmailComposerOptions = {
+      to: 'sweetspam13@gmail.com',
+      cc: 'sweetspam13@gmail.com',
+      attachments: [`base64:image.jpg//${this.imageData}`],
+      subject: 'fotoLocura',
+      body: 'Todo lo que puede tener un cuerpo en un mail',
+    };
+
+    await this.emailComposer.open(email);
+
+  }
 
   ngOnInit() {}
-  ngAfterViewInit(){
-    const salir = this.animationCtrl
-    .create()
-    .addElement(this.btn.get(0)!.nativeElement)
-    .fromTo('opacity', '0.2', '1');;
 
-    this.animation=this.animationCtrl
-    .create()
-    .duration(3000)
-    .iterations(1)
-    .addAnimation([salir]);
-
-    this.animation.play();
-  }
   async logoutUsuario(){
     this.usuarios.logoutUsuario();
     this.router.navigate(['plogin/login']);

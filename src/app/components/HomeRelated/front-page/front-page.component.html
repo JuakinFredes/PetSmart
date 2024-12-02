@@ -1,20 +1,20 @@
-<ion-card class="carrusel">
-  <ion-card-header>
-    <ion-card-title>Nombre Mascota</ion-card-title>
-    <ion-card-subtitle>Raza mascota - Edad</ion-card-subtitle>
-  </ion-card-header>
+<h2><ion-icon name="paw"></ion-icon> Bienvenido a PetSmart</h2>
+<a href="lol"><img src="https://files.catbox.moe/tik13f.png" style="width:100%"> </a>
+
+<ion-content>
+  <ion-button (click)="captureImage()">captura Image</ion-button>
+  <ion-button (click)="sendMail()">send Mail</ion-button>
+</ion-content>
+
+<ion-card class="carrusel"> 
+  <ion-card-title style="font-size: 16px;"> Veterinarias afiliadas </ion-card-title>
   <ion-card-content>
-    <img class="perro" src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best/dog-lp_2up_new-dog-guide_puppy_260x346.png" style="width:70%;">
+    <div><p><img src="https://i.pinimg.com/736x/d5/09/d4/d509d46a07a289610b5b66a60b8fda54.jpg" style="float:left;width:30%;margin-right:10px;">
+      Nombre: Angélica Muñoz <br>Especialista en animales exóticos, disponibilidad fines de semana.</p></div><br>
+      <div><p><img src="https://i.pinimg.com/736x/d5/09/d4/d509d46a07a289610b5b66a60b8fda54.jpg" style="float:left;width:30%;margin-right:10px;">
+        Nombre: Claudio Vega <br>Operaciones disponibles desde Enero 2025.</p></div><br>
+      <div><p><img src="https://i.pinimg.com/736x/d5/09/d4/d509d46a07a289610b5b66a60b8fda54.jpg" style="float:left;width:30%;margin-right:10px;">
+      Nombre: Minerva Flores <br>Reserve su control anual desde el 20 de este mes.</p></div>
   </ion-card-content>
-  <ion-card class="content">
-    <ion-card-header>
-      <ion-card-title>Siguientes citas</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Antirrábica<br>Vacuna sextuple<br>Chipeo
-    </ion-card-content>
-  </ion-card><br>
-  <div id="out"><ion-button id="salir" expand="block" (click)="logoutUsuario()">Salir</ion-button></div>
-  <br><br>
 </ion-card>
+  <div id="out"><ion-button id="salir" expand="block" (click)="logoutUsuario()">Salir</ion-button></div>

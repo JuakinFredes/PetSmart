@@ -21,28 +21,42 @@
         h1{
           font-weight: 500;
         }
+        img{
+          width: 100%;
+          max-width: 200px;
+          height: auto;
+        }
+        .row{
+
+          justify-content: center;
+          display: flex;
+          align-content: center;
+          margin: auto;
+        }
+
         
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            
-          </ul>
-        </div>
-      </nav>
 
-<div class="cont">
-  <div style="float:left;">
-    <img src="https://files.catbox.moe/2nswey.png" height="600px" style="margin-left:250px;"><br>
+  <nav class="navbar navbar-inverse" style="margin-bottom: 10%;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div>
+  </nav>
+
+<div class="row">
+  <div class="col-sm-2" class="container">
+    <img src="https://files.catbox.moe/2nswey.png" ><br>
   </div>
-  <div style="float:right;position: relative;right:190px">
+
+  <div class="col-sm-2" class="container">
     <h1>DESCARGA LA APLICACIÓN <BR> PETSMART</h1>
-    <div class="btn">DESCARGAR APLICACIÓN</div>
     <div id="div_Target"></div>
     <script src="detector.js"></script>
     
